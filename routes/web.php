@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'admin', 'auth'], function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard.home');
     })->middleware('verified')->name('dashboard');
 });
 
