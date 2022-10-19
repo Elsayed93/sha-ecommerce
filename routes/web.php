@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +20,13 @@ Route::get('/', function () {
 })->name('welcome');
 
 
-Route::group(['middleware' => 'admin', 'auth'], function () {
+Route::group(['middleware' => ['admin', 'auth'], 'as' => 'dashboard.'], function () {
     Route::get('/dashboard', function () {
         return view('dashboard.home');
-    })->middleware('verified')->name('dashboard');
+    })->middleware('verified')->name('home');
+
+    // categories
+    Route::resource('categories', CategoryController::class);
 });
 
 
