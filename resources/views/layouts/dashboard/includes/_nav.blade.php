@@ -22,29 +22,6 @@
                 </div>
             </div>
             <ul class="navbar-nav  justify-content-end">
-                <li class="nav-item d-flex align-items-center" id="logout">
-                    <a href="#" class="nav-link text-body font-weight-bold px-0" @click="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="d-sm-inline d-none">Logout</span>
-                    </a>
-                    <form action="{{ route('logout') }}" method="post" id="logout-form">
-                        @csrf
-                    </form>
-                </li>
-                <script>
-                    const {
-                        createApp
-                    } = Vue
-
-                    createApp({
-                        methods: {
-                            logout() {
-                                console.log('logout');
-                                document.querySelector('#logout-form').submit();
-                            }
-                        }
-                    }).mount('#logout')
-                </script>
 
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -57,13 +34,13 @@
                 </li>
                 <li class="nav-item px-3 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body p-0">
-                        <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+                        <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer fa-lg"></i>
                     </a>
                 </li>
                 <li class="nav-item dropdown pe-2 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-bell cursor-pointer"></i>
+                        <i class="fa fa-bell cursor-pointer fa-lg"></i>
                     </a>
                     <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
                         aria-labelledby="dropdownMenuButton">
@@ -97,7 +74,7 @@
                                             <span class="font-weight-bold">New album</span> by Travis Scott
                                         </h6>
                                         <p class="text-xs text-secondary mb-0">
-                                            <i class="fa fa-clock me-1"></i>
+                                            <i class="fa fa-clock me-1 fa-lg"></i>
                                             1 day
                                         </p>
                                     </div>
@@ -145,9 +122,9 @@
                 </li>
 
                 <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                    <a href="javascript:;" class="nav-link text-body p-0" id="dropdownProfile"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-user me-sm-1"></i>
+                    <a href="javascript:;" class="nav-link text-body p-0" id="dropdownProfile" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa fa-user me-sm-1 fa-lg"></i>
                     </a>
 
                     <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
@@ -170,6 +147,45 @@
                                 </div>
                             </a>
                         </li>
+
+                        <li class="nav-item d-flex align-items-center justify-content-center" id="logout">
+                            <a href="#" class="nav-link text-body font-weight-bold px-0" @click="logout">
+
+                                <div class="d-flex py-1">
+                                    <div class="my-auto">
+                                        <i class="fas fa-sign-out-alt fa-lg"></i>
+                                    </div>
+
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="text-sm font-weight-normal mb-1">
+                                            <span class="d-sm-inline d-none"
+                                                style="margin-left: 0.5rem;
+                                            font-size: 16px;">Logout</span>
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <form action="{{ route('logout') }}" method="post" id="logout-form">
+                                    @csrf
+                                </form>
+                            </a>
+
+                        </li>
+                        <script>
+                            const {
+                                createApp
+                            } = Vue
+
+                            createApp({
+                                methods: {
+                                    logout() {
+                                        console.log('logout');
+                                        document.querySelector('#logout-form').submit();
+                                    }
+                                }
+                            }).mount('#logout')
+                        </script>
+
                     </ul>
                 </li>
             </ul>
